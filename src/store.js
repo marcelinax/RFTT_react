@@ -1,5 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import { timelineSlice } from './state/timelineSlice';
+import { runTargetSlice } from './state/runTargetSlice';
 
 export default configureStore({
-	reducer: {},
-})
+	reducer: {
+		timeline: timelineSlice,
+		runTarget: runTargetSlice
+	},
+});
