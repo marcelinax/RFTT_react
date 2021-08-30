@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { timelineSlice } from './state/timelineSlice';
-import { runTargetSlice } from './state/runTargetSlice';
+import timelineSlice from './state/timelineSlice';
+import runTargetSlice from './state/runTargetSlice';
 
 export default configureStore({
 	reducer: {

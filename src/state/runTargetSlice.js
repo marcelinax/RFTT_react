@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const saveRunTargetInLocalStorage = (state) => {
-	localStorage.setItem('runTarget', JSON.stringify(state));
+	localStorage.setItem('runTarget', state);
 };
 
 const loadRunTargetFromLocalStorage = () => {
-	return JSON.parse(localStorage.getItem('runTarget') || '');
+	return localStorage.getItem('runTarget') || '';
 };
 
 
 export const runTargetSlice = createSlice({
 		name: 'runTarget',
-		initalState: {
+		initialState: {
 			runTarget: loadRunTargetFromLocalStorage(),
 		},
 		reducers: {
