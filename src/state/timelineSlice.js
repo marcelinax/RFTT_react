@@ -29,15 +29,19 @@ export const timelineSlice = createSlice({
 			saveTimelineInLocalStorage(state.timeline);
 		},
 		removeTimeline: (state, action) => {
-			const { id } = action.payload;
+			const id = action.payload;
 			const deleteStartIndex = state.timeline.map(t => t.id).indexOf(id);
 			state.timeline.splice(deleteStartIndex, 1);
 			state.timeline = [...state.timeline];
+			saveTimelineInLocalStorage(state.timeline);
+		},
+		removeAllTimeline: (state) => {
+			state.timeline = [];
 			saveTimelineInLocalStorage(state.timeline);
 		}
 
 	}
 });
 
-export const { createTimeline, removeTimeline } = timelineSlice.actions;
+export const { createTimeline, removeTimeline, removeAllTimeline } = timelineSlice.actions;
 export default timelineSlice.reducer;

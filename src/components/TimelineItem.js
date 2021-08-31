@@ -1,15 +1,14 @@
 import React from 'react';
 
-const TimelineItem = ({ time, calories, distance }) => {
+const TimelineItem = ({ time, calories, distance, index, deleteTimelineItem }) => {
 
 
 	return (
 		<div className={'timeline-item'}>
 			<div className={'timeline-item-top'}>
-				{/*<div className={'date-box'}>*/}
-				{/*	<i className="bx bx-calendar"></i>*/}
-				{/*	<p className={'date'}>{formatDate()}</p>*/}
-				{/*</div>*/}
+				<p className={'timeline-item-top-index'}>#{index} run</p>
+				<i className="bx bx-x" onClick={deleteTimelineItem}></i>
+
 			</div>
 			<div className={'timeline-item-main'}>
 				<div className={'timeline-item-main-top'}>
