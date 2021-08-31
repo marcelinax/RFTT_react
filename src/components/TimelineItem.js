@@ -1,33 +1,24 @@
 import React from 'react';
+import moment from 'moment';
 
-const TimelineItem = ({ time, calories, distance, index, deleteTimelineItem }) => {
-
+const TimelineItem = ({ time, calories, distance, deleteTimelineItem, date }) => {
+	const formatDate = () => {
+		return moment().format('DD MMM YYYY');
+	};
 
 	return (
 		<div className={'timeline-item'}>
-			<div className={'timeline-item-top'}>
-				<p className={'timeline-item-top-index'}>#{index} run</p>
-				<i className="bx bx-x" onClick={deleteTimelineItem}></i>
 
+			<div className={'timeline-item-date-box'}>
+				<p className={'date'}>{formatDate(date)}</p>
 			</div>
-			<div className={'timeline-item-main'}>
-				<div className={'timeline-item-main-top'}>
-					<div className={'timeline-item-main-top-item'}>
-						<i className="bx bxs-time"></i>
-						<p className={'time'}>{time}</p>
-					</div>
-					<div className={'timeline-item-main-top-item'}>
-						<i className="bx bxs-hot"></i>
-						<p className={'calories'}>{calories}</p>
-					</div>
-				</div>
-				<div className={'timeline-item-main-bottom'}>
-					<div className={'distance-box'}>
-						<i className="bx bx-run"></i>
-						<p className={'distance'}>{distance} km</p>
-					</div>
+			<div className={'timeline-item-info-box'}>
+				<h3>{distance} km</h3>
+				<div className={'timeline-item-info-box-other-information'}>
+					<p>{calories} calories, {time}</p>
 				</div>
 			</div>
+			<i className="bx bx-x delete-btn" onClick={deleteTimelineItem}></i>
 		</div>
 	);
 };
